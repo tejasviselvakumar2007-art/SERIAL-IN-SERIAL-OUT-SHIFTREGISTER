@@ -25,18 +25,37 @@ Each D flip-flop in the circuit has a Data (D) input, a Clock (CLK) input, and a
 
 **Procedure**
 
-/* write all the steps invloved */
+First, Quartus II software is opened and a new project is created using the New Project Wizard by giving a suitable project name. Then a Block Diagram/Schematic file is created. Required D flip-flops are selected from Primitives → Storage → Flip-Flop and placed on the schematic. Input pins are added and named as DIN (serial input) and CLK (clock), and an output pin is added and named as DOUT (serial output). The serial input DIN is connected to the D input of the first flip-flop, and the Q output of each flip-flop is connected to the D input of the next flip-flop. All clock inputs are connected to a common clock signal. The Q output of the last flip-flop is connected to DOUT. After completing the connections, the design is saved and compiled successfully. Then a University Program VWF file is created, input waveforms are applied to DIN and CLK, and functional simulation is run. The output waveform is observed, and it is verified that the serial data applied at the input appears at the output after each clock pulse, thus confirming the operation of the SISO shift register.
 
 **PROGRAM**
+```
+module EXP10(clk, sin, q);
+input clk;
+input sin;
+output [3:0] q;
+reg [3:0] q;
+always @(posedge clk)
+begin
+q[0] <= sin;
+q[1] <= q[0];
+q[2] <= q[1];
+q[3] <= q[2];
+end
+endmodule
+```
 
-/* Program for flipflops and verify its truth table in quartus using Verilog programming.
 
-Developed by: RegisterNumber:
+Developed by:DHIVYA SHREE .R  RegisterNumber: 25016639
 
-*/
 
 **RTL LOGIC FOR SISO Shift Register**
+<img width="1280" height="720" alt="image" src="https://github.com/user-attachments/assets/3c00ec54-f34f-4adb-8c8d-f7cbeaa16684" />
+
 
 **TIMING DIGRAMS FOR SISO Shift Register**
+<img width="1920" height="1080" alt="Screenshot (151)" src="https://github.com/user-attachments/assets/9fc86d19-0c2c-43e2-9197-8687499f6ce9" />
+
 
 **RESULTS**
+The Serial In Serial Out (SISO) shift register was successfully designed and simulated using Quartus II.
+
