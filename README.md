@@ -45,7 +45,9 @@ endmodule
 ```
 
 
-Developed by:DHIVYA SHREE .R  RegisterNumber: 25016639
+Developed by:Tejasvi S
+
+RegisterNumber: 25018602
 
 
 **RTL LOGIC FOR SISO Shift Register**
